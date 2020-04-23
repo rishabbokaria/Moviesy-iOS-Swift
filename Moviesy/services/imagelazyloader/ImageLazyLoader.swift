@@ -3,7 +3,7 @@
 //  ImageLazyLoader
 //
 //  Created by Rishab Bokaria on 8/7/18.
-//  Copyright © 2018 RB Inc. All rights reserved.
+//  Copyright © 2019 RB Inc. All rights reserved.
 //
 
 import Foundation
@@ -13,10 +13,16 @@ public typealias ImageLazyLoadingResultHandler = (_ path:String, _ image:UIImage
 
 public class ImageLazyLoader
 {
+    //MARK: -
+    //MARK: Static
+
     public static let shared = ImageLazyLoader();
-    
+
+    //MARK: -
+    //MARK: Instance
+
     private var _session:URLSession?;
-    
+
     private init()
     {
         //do nothing.
@@ -29,6 +35,10 @@ public class ImageLazyLoader
         _session = URLSession.init(configuration: configuration, delegate: nil, delegateQueue: queue);
     }
     
+    
+    //MARK: -
+    //MARK: Load Image
+
     public func load(imageUrl:String, hanlder:@escaping ImageLazyLoadingResultHandler) -> Void
     {
         let completion = { (data:Data?, error:Error?) -> Void in
