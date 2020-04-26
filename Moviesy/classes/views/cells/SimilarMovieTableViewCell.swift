@@ -43,6 +43,7 @@ class SimilarMovieTableViewCell: UITableViewCell
     
     private func updateView()
     {
+        self.selectionStyle = .none
         _similarMovieCollectionView.register(UINib.init(nibName: StringValues.SimilarMovieCollectionViewCellId, bundle: Bundle.main), forCellWithReuseIdentifier: StringValues.SimilarMovieCollectionViewCellId)
     }
     

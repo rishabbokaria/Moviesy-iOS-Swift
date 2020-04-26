@@ -47,6 +47,7 @@ class MovieTableViewCell: UITableViewCell
     
     private func updateView()
     {
+        self.selectionStyle = .none
         _holderView.layer.cornerRadius = 5.0;
         _posterImageView.layer.cornerRadius = 3.0
         _bookButton.layer.cornerRadius = 2.5

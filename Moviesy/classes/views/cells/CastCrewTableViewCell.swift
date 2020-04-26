@@ -43,6 +43,7 @@ class CastCrewTableViewCell: UITableViewCell
     
     private func updateView()
     {
+        self.selectionStyle = .none
         _castCrewCollectionView.register(UINib.init(nibName: StringValues.CastCrewCollectionViewCellId, bundle: Bundle.main), forCellWithReuseIdentifier: StringValues.CastCrewCollectionViewCellId)
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 extension Date
 {
-    func toString(withFormat format: String = "EEE، d MMM yy") -> String
+    func toString(withFormat format: String = "EEE, d MMM yy") -> String
     {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_IN")
