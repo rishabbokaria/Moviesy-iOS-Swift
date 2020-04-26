@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultsHeaderView" customModule="Moviesy" customModuleProvider="target">
+            <connections>
+                <outlet property="_contentView" destination="GBd-Qb-dul" id="2hZ-qQ-SyM"/>
+                <outlet property="_searchQueriesCollectionView" destination="LFl-kn-lvH" id="Kha-Uj-2Yd"/>
+                <outlet property="_titleLabel" destination="j6n-eu-STx" id="rUG-2R-P6R"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GBd-Qb-dul">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently Searched" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6n-eu-STx">
+                    <rect key="frame" x="16" y="16" width="382" height="24"/>
+                    <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="18"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFl-kn-lvH">
+                    <rect key="frame" x="0.0" y="40" width="414" height="440"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="66N-eY-oEY">
+                        <size key="itemSize" width="168" height="36"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1sp-dF-yV8"/>
+                        <outlet property="delegate" destination="-1" id="XeV-Ra-RWw"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="LFl-kn-lvH" firstAttribute="leading" secondItem="GBd-Qb-dul" secondAttribute="leading" id="Ja1-4n-HDd"/>
+                <constraint firstItem="j6n-eu-STx" firstAttribute="top" secondItem="GBd-Qb-dul" secondAttribute="top" constant="16" id="aFH-h4-iM8"/>
+                <constraint firstAttribute="trailing" secondItem="j6n-eu-STx" secondAttribute="trailing" constant="16" id="b4r-9Q-52C"/>
+                <constraint firstItem="LFl-kn-lvH" firstAttribute="top" secondItem="j6n-eu-STx" secondAttribute="bottom" id="er3-Ll-QqI"/>
+                <constraint firstAttribute="bottom" secondItem="LFl-kn-lvH" secondAttribute="bottom" id="o3L-RX-CxF"/>
+                <constraint firstAttribute="trailing" secondItem="LFl-kn-lvH" secondAttribute="trailing" id="oT2-77-44N"/>
+                <constraint firstItem="j6n-eu-STx" firstAttribute="leading" secondItem="GBd-Qb-dul" secondAttribute="leading" constant="16" id="swX-oP-G1d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-104.34782608695653" y="168.75"/>
+        </view>
+    </objects>
+</document>

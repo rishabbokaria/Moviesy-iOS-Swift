@@ -36,13 +36,13 @@ class HomeViewController: UIViewController, OnCommunicationResponseListener
     
     private func updateView()
     {
+        _searchButton = getSearchButton()
         updateNavigationBar()
         updateTableView()
     }
     
     private func updateNavigationBar()
     {
-        _searchButton = getSearchButton()
         self.navigationItem.titleView = UIImageView(image:#imageLiteral(resourceName: "logo-small"))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: _searchButton)
     }

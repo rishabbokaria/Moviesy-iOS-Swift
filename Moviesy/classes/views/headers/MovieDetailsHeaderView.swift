@@ -10,39 +10,40 @@ import UIKit
 
 class MovieDetailsHeaderView: UIView
 {
-    @IBOutlet var _contentView: UIView!
-    @IBOutlet var _backdropImageView: UIImageView!
-    @IBOutlet var _titleLabel: UILabel!
-    @IBOutlet var _languageLabel: UILabel!
-    @IBOutlet var _genreLabel: UILabel!
-    @IBOutlet var _overviewLabel: UILabel!
-    @IBOutlet var _releaseDateLabel: UILabel!
+    @IBOutlet weak var _contentView: UIView!
+    @IBOutlet weak var _backdropImageView: UIImageView!
+    @IBOutlet weak var _titleLabel: UILabel!
+    @IBOutlet weak var _languageLabel: UILabel!
+    @IBOutlet weak var _genreLabel: UILabel!
+    @IBOutlet weak var _overviewLabel: UILabel!
+    @IBOutlet weak var _releaseDateLabel: UILabel!
     
     //MARK: -
     //MARK: Lifecycle
     
     override public init(frame: CGRect)
     {
-        super.init(frame: frame);
-        initFromXIB();
+        super.init(frame: frame)
+        initFromXIB()
     }
     
     required public init?(coder aDecoder: NSCoder)
     {
-        super.init(coder: aDecoder);
-        initFromXIB();
+        super.init(coder: aDecoder)
+        initFromXIB()
     }
     
     private func initFromXIB()
     {
-        let selfBundle = Bundle(for: type(of: self));
-        let name = String(describing: type(of: self));
-        let nib = UINib(nibName: name, bundle: selfBundle);
-        nib.instantiate(withOwner: self, options: nil);
+        let selfBundle = Bundle(for: type(of: self))
+        let name = String(describing: type(of: self))
+        let nib = UINib(nibName: name, bundle: selfBundle)
+        nib.instantiate(withOwner: self, options: nil)
         
-        _contentView.frame = self.bounds;
-        _contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight];
-        addSubview(_contentView);
+        _contentView.frame = self.bounds
+        _contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(_contentView)
+        updateView()
     }
     
     //MARK: -

@@ -112,13 +112,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-Hj-SPN" userLabel="Search View">
                                 <rect key="frame" x="0.0" y="88" width="414" height="52"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter you query here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyz-RW-uzt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter you query here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyz-RW-uzt">
                                         <rect key="frame" x="8" y="8" width="398" height="36"/>
                                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="4Xr-kg-wlP"/>
                                         </constraints>
-                                        <attributedString key="attributedText"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
                                             <action selector="didChangeEditingInTextField:" destination="fxr-9X-9fC" eventType="editingChanged" id="dHS-Vk-EiJ"/>

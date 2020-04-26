@@ -35,6 +35,7 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
     
     private func updateView()
     {
+        _backButton = getBackButton()
         _headerView = getHeaderView()
         updateNavigationBar()
         updateTableView()
@@ -50,7 +51,6 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
     
     private func updateNavigationBar()
     {
-        _backButton = getBackButton()
         self.navigationItem.titleView = UIImageView(image:#imageLiteral(resourceName: "logo-small"))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: _backButton)
     }

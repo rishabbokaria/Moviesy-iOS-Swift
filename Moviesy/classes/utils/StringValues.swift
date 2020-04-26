@@ -24,7 +24,8 @@ class StringValues
     static let CastTitle:String                 = "Cast"
     static let CrewTitle:String                 = "Crew"
     static let SimilarMoviesTitle:String        = "Movies you may also like..."
-
+    static let RecentlySearchedItemsKey:String  = "RecentlySearchedItems"
+    static let NoResultsFound:String            = "No results found."
     
     //MARK: -
     //UI Identifier's
@@ -39,5 +40,5 @@ class StringValues
     static let SimilarMovieTableViewCellId:String       = "SimilarMovieTableViewCell"
     static let SimilarMovieCollectionViewCellId:String  = "SimilarMovieCollectionViewCell"
     static let MovieDetailsHeaderViewId:String          = "MovieDetailsHeaderView"
-    
+    static let SearchQueryCollectionViewCellId:String   = "SearchQueryCollectionViewCell"
 }

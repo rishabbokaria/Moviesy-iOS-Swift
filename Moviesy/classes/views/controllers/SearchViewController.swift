@@ -15,6 +15,8 @@ class SearchViewController: UIViewController
     
     var viewModels:[MovieViewModel]!
     private var _backButton:UIButton!
+    private var _recentlySearchHeaderView:SearchResultsHeaderView!
+    private var _marginHeaderView:UIView!
     fileprivate var _filteredViewModels:[MovieViewModel] = []
     fileprivate var _selectedItem:Int = -1;
 
@@ -25,6 +27,7 @@ class SearchViewController: UIViewController
     {
         super.viewDidLoad()
         updateView()
+        updateRecentlySearchHeaderView()
     }
     
     //MARK: -
@@ -32,6 +35,9 @@ class SearchViewController: UIViewController
     
     private func updateView()
     {
+        _backButton = getBackButton()
+        _recentlySearchHeaderView = getHeaderView()
+        
         updateNavigationBar()
         updateTextField()
         updateTableView()
@@ -39,7 +45,6 @@ class SearchViewController: UIViewController
     
     private func updateNavigationBar()
     {
-        _backButton = getBackButton()
         self.navigationItem.titleView = UIImageView(image:#imageLiteral(resourceName: "logo-small"))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: _backButton)
     }
@@ -69,17 +74,32 @@ class SearchViewController: UIViewController
         _searchTextField.leftView = leftView
     }
     
+    private func getHeaderView() -> SearchResultsHeaderView
+    {
+        let headerView = SearchResultsHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.size.width, height: 620.0)))
+        return headerView
+    }
+    
+    private func updateRecentlySearchHeaderView()
+    {
+        let recentlySearched:[String] = getRecentlySearchedList()
+        let viewModels = recentlySearched.map {
+            return RecentlySearchedViewModel(withTitle: $0)
+        }
+        _recentlySearchHeaderView.viewModels = viewModels
+    }
+    
     private func updateTableView()
     {
         _moviesTableView.register(UINib.init(nibName: StringValues.MovieTableViewCellId, bundle: Bundle.main), forCellReuseIdentifier: StringValues.MovieTableViewCellId)
         let frame = CGRect.init(origin: .zero, size: CGSize.init(width: self.view.bounds.size.width, height: 8.0))
-        let headerView = UIView(frame: frame)
+        _marginHeaderView = UIView(frame: frame)
         let footerView = UIView(frame: frame)
         
-        headerView.backgroundColor = .clear
+        _marginHeaderView.backgroundColor = .clear
         footerView.backgroundColor = .clear
         
-        _moviesTableView.tableHeaderView = headerView
+        _moviesTableView.tableHeaderView = _recentlySearchHeaderView
         _moviesTableView.tableFooterView = footerView
     }
     
@@ -96,22 +116,13 @@ class SearchViewController: UIViewController
         if (segue.identifier == StringValues.MovieDetailsSegueId)
         {
             let movieDetailVC:MovieDetailsViewController = segue.destination as! MovieDetailsViewController
-            if (isSearching())
+            if (_selectedItem < 0 && _selectedItem > _filteredViewModels.count-1)
             {
-                if (_selectedItem < 0 && _selectedItem > _filteredViewModels.count-1)
-                {
-                    _selectedItem = 0;
-                }
-                movieDetailVC.viewModel = _filteredViewModels[_selectedItem]
+                _selectedItem = 0;
             }
-            else
-            {
-                if (_selectedItem < 0 && _selectedItem > viewModels.count-1)
-                {
-                    _selectedItem = 0;
-                }
-                movieDetailVC.viewModel = viewModels[_selectedItem]
-            }
+            let clickedViewModel = _filteredViewModels[_selectedItem]
+            updateRecentlySearchedList(withItem: clickedViewModel.title)
+            movieDetailVC.viewModel = clickedViewModel
         }
     }
     
@@ -135,8 +146,7 @@ class SearchViewController: UIViewController
     {
         if (query.isEmpty)
         {
-            _filteredViewModels = viewModels
-            _moviesTableView.reloadData()
+            _filteredViewModels = []
         }
         else
         {
@@ -166,23 +176,58 @@ class SearchViewController: UIViewController
                     return filteredTitleWords.count > 0
                 })
             }
-            _moviesTableView.reloadData()
         }
+        if (_filteredViewModels.count > 0)
+        {
+            _moviesTableView.tableHeaderView = _marginHeaderView
+        }
+        else
+        {
+            updateRecentlySearchHeaderView()
+            _moviesTableView.tableHeaderView = _recentlySearchHeaderView
+        }
+        _moviesTableView.reloadData()
     }
     
+    private func updateRecentlySearchedList(withItem searched:String)
+    {
+        let defaults = UserDefaults.standard
+        var list = [String]()
+        if let savedArray = defaults.value(forKey: StringValues.RecentlySearchedItemsKey) as? [String]
+        {
+            list.append(contentsOf: savedArray)
+            if (list.count == 5 && !list.contains(searched))
+            {
+                list.removeFirst()
+            }
+        }
+        list.append(searched);
+        defaults.set(list, forKey: StringValues.RecentlySearchedItemsKey)
+        defaults.synchronize()
+    }
+    
+    private func getRecentlySearchedList() -> [String]
+    {
+        let defaults = UserDefaults.standard
+        if let savedArray = defaults.value(forKey: StringValues.RecentlySearchedItemsKey) as? [String]
+        {
+            return savedArray
+        }
+        return [String]()
+    }
 }
 
 extension SearchViewController : UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return isSearching() ? _filteredViewModels.count : viewModels.count
+        return _filteredViewModels.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: StringValues.MovieTableViewCellId) as! MovieTableViewCell
-        cell.viewModel = isSearching() ? _filteredViewModels[indexPath.row] : viewModels[indexPath.row]
+        cell.viewModel = _filteredViewModels[indexPath.row]
         return cell
     }
     
@@ -199,6 +244,10 @@ extension SearchViewController : UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
+        if (isSearching() && _filteredViewModels.count == 0)
+        {
+            showAlert(title: StringValues.Error, message: StringValues.NoResultsFound)
+        }
         return true
     }
 }
