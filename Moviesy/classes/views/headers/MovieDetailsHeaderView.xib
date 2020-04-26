@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsHeaderView" customModule="Moviesy" customModuleProvider="target">
+            <connections>
+                <outlet property="_backdropImageView" destination="GJ0-y4-hbG" id="SHD-7E-ufR"/>
+                <outlet property="_contentView" destination="hSW-Io-5Ng" id="IOj-O7-REo"/>
+                <outlet property="_genreLabel" destination="o7k-EW-pmk" id="dYT-YQ-krG"/>
+                <outlet property="_languageLabel" destination="d7y-7W-7Q0" id="H2X-6N-A0h"/>
+                <outlet property="_overviewLabel" destination="O7w-lv-yKD" id="CgM-EM-4VX"/>
+                <outlet property="_releaseDateLabel" destination="0KD-Hz-BUQ" id="FSr-Rp-XMZ"/>
+                <outlet property="_titleLabel" destination="Y0K-8q-PuS" id="E46-0c-fPh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hSW-Io-5Ng">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="506"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="GJ0-y4-hbG">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="GJ0-y4-hbG" secondAttribute="height" multiplier="16:9" id="ITd-fE-gli"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0K-8q-PuS">
+                    <rect key="frame" x="16" y="249" width="382" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="1gS-Vx-9Hh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7k-EW-pmk">
+                    <rect key="frame" x="16" y="283" width="382" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="yUP-Kq-jq9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KD-Hz-BUQ">
+                    <rect key="frame" x="16" y="315" width="382" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="LCf-fF-Jaf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7y-7W-7Q0">
+                    <rect key="frame" x="16" y="345" width="382" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="OzP-Nr-cek"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Overview" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-lv-yKD">
+                    <rect key="frame" x="16" y="375" width="382" height="123"/>
+                    <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="18"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="O7w-lv-yKD" firstAttribute="top" secondItem="d7y-7W-7Q0" secondAttribute="bottom" constant="8" id="5Wn-DB-zrN"/>
+                <constraint firstAttribute="trailing" secondItem="0KD-Hz-BUQ" secondAttribute="trailing" constant="16" id="7sP-95-wc1"/>
+                <constraint firstAttribute="trailing" secondItem="Y0K-8q-PuS" secondAttribute="trailing" constant="16" id="Ff7-Zo-8Sm"/>
+                <constraint firstItem="o7k-EW-pmk" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" constant="16" id="JPo-Qr-VlO"/>
+                <constraint firstItem="o7k-EW-pmk" firstAttribute="top" secondItem="Y0K-8q-PuS" secondAttribute="bottom" constant="8" id="KD8-gq-ZtC"/>
+                <constraint firstItem="d7y-7W-7Q0" firstAttribute="top" secondItem="0KD-Hz-BUQ" secondAttribute="bottom" constant="8" id="KcJ-4A-FQV"/>
+                <constraint firstItem="Y0K-8q-PuS" firstAttribute="top" secondItem="GJ0-y4-hbG" secondAttribute="bottom" constant="16" id="LoP-Qu-NnY"/>
+                <constraint firstItem="0KD-Hz-BUQ" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" constant="16" id="Nn0-pz-jj2"/>
+                <constraint firstAttribute="bottom" secondItem="O7w-lv-yKD" secondAttribute="bottom" constant="8" id="Phb-Xn-xvb"/>
+                <constraint firstAttribute="trailing" secondItem="O7w-lv-yKD" secondAttribute="trailing" constant="16" id="Qe3-96-7Kk"/>
+                <constraint firstItem="d7y-7W-7Q0" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" constant="16" id="RIW-ZZ-Pqb"/>
+                <constraint firstItem="Y0K-8q-PuS" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" constant="16" id="T1R-uN-ozg"/>
+                <constraint firstAttribute="trailing" secondItem="o7k-EW-pmk" secondAttribute="trailing" constant="16" id="apJ-pw-fVw"/>
+                <constraint firstAttribute="trailing" secondItem="GJ0-y4-hbG" secondAttribute="trailing" id="eGw-Ok-eK0"/>
+                <constraint firstAttribute="trailing" secondItem="d7y-7W-7Q0" secondAttribute="trailing" constant="16" id="kRC-BL-eGo"/>
+                <constraint firstItem="GJ0-y4-hbG" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" id="rYO-Ds-NTD"/>
+                <constraint firstItem="O7w-lv-yKD" firstAttribute="leading" secondItem="hSW-Io-5Ng" secondAttribute="leading" constant="16" id="xx3-dT-gK2"/>
+                <constraint firstItem="0KD-Hz-BUQ" firstAttribute="top" secondItem="o7k-EW-pmk" secondAttribute="bottom" constant="8" id="xyU-Ux-zMF"/>
+                <constraint firstItem="GJ0-y4-hbG" firstAttribute="top" secondItem="hSW-Io-5Ng" secondAttribute="top" id="zgu-KS-nP8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="-332.8125"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="512" height="512"/>
+    </resources>
+</document>
