@@ -31,6 +31,7 @@ class StringValues
     static let NavigationControllerId:String            = "NavigationController"
     static let SearchSegueId:String                     = "SearchSegue"
     static let MovieDetailSegueId:String                = "MovieDetailSegue"
+    static let MovieDetailsSegueId:String               = "MovieDetailsSegue"
 
     static let MovieTableViewCellId:String              = "MovieTableViewCell"
     static let CastCrewTableViewCellId:String           = "CastCrewTableViewCell"

@@ -26,7 +26,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.31764705882352939" green="0.47058823529411764" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.34901960784313724" green="0.53333333333333333" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9W1-1A-7nL" firstAttribute="width" secondItem="Nr6-vf-KN2" secondAttribute="width" id="68B-Ws-i3G"/>
                             <constraint firstItem="9W1-1A-7nL" firstAttribute="centerX" secondItem="Nr6-vf-KN2" secondAttribute="centerX" id="FPS-yn-5Q4"/>
@@ -108,14 +108,63 @@
                     <view key="view" contentMode="scaleToFill" id="Koa-bo-KEr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-Hj-SPN" userLabel="Search View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="52"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter you query here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyz-RW-uzt">
+                                        <rect key="frame" x="8" y="8" width="398" height="36"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="4Xr-kg-wlP"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <connections>
+                                            <action selector="didChangeEditingInTextField:" destination="fxr-9X-9fC" eventType="editingChanged" id="dHS-Vk-EiJ"/>
+                                            <outlet property="delegate" destination="fxr-9X-9fC" id="uLI-bf-1Xl"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35537034273147583" green="0.53997170925140381" blue="0.91764897108078003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qyz-RW-uzt" firstAttribute="leading" secondItem="fp9-Hj-SPN" secondAttribute="leading" constant="8" id="EzT-aW-QBb"/>
+                                    <constraint firstItem="qyz-RW-uzt" firstAttribute="centerY" secondItem="fp9-Hj-SPN" secondAttribute="centerY" id="MXX-AB-rpP"/>
+                                    <constraint firstAttribute="height" constant="52" id="i7T-JM-phf"/>
+                                    <constraint firstAttribute="trailing" secondItem="qyz-RW-uzt" secondAttribute="trailing" constant="8" id="x7H-yv-VDs"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="225" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kT1-lF-wZX">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fxr-9X-9fC" id="elp-Wy-o1t"/>
+                                    <outlet property="delegate" destination="fxr-9X-9fC" id="yGg-uN-Srq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="kT1-lF-wZX" firstAttribute="leading" secondItem="7CX-j9-Ae8" secondAttribute="leading" id="Ekn-Km-UpQ"/>
+                            <constraint firstItem="fp9-Hj-SPN" firstAttribute="leading" secondItem="7CX-j9-Ae8" secondAttribute="leading" id="IrA-AT-Prj"/>
+                            <constraint firstItem="kT1-lF-wZX" firstAttribute="trailing" secondItem="7CX-j9-Ae8" secondAttribute="trailing" id="Ljh-gB-lEe"/>
+                            <constraint firstItem="kT1-lF-wZX" firstAttribute="top" secondItem="fp9-Hj-SPN" secondAttribute="bottom" id="XHl-vZ-AFp"/>
+                            <constraint firstItem="fp9-Hj-SPN" firstAttribute="trailing" secondItem="7CX-j9-Ae8" secondAttribute="trailing" id="e0p-Nw-oEU"/>
+                            <constraint firstItem="kT1-lF-wZX" firstAttribute="bottom" secondItem="7CX-j9-Ae8" secondAttribute="bottom" id="se6-yd-Sp1"/>
+                            <constraint firstItem="fp9-Hj-SPN" firstAttribute="top" secondItem="7CX-j9-Ae8" secondAttribute="top" id="vsM-Qk-EJY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7CX-j9-Ae8"/>
                     </view>
                     <navigationItem key="navigationItem" id="tBw-QM-5TE"/>
+                    <connections>
+                        <outlet property="_moviesTableView" destination="kT1-lF-wZX" id="V9h-BN-1fw"/>
+                        <outlet property="_searchTextField" destination="qyz-RW-uzt" id="Bxq-A9-cQ9"/>
+                        <segue destination="i7o-QS-5OR" kind="showDetail" identifier="MovieDetailsSegue" id="UZF-80-c7l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KdO-No-nX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="816"/>
+            <point key="canvasLocation" x="2708.6956521739135" y="815.625"/>
         </scene>
         <!--Movie Detail-->
         <scene sceneID="Hwj-dO-Mow">
@@ -136,7 +185,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31764705882352939" green="0.47058823529411764" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.34745818376541138" green="0.53208279609680176" blue="0.90976947546005249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="k43-e2-eUy" firstAttribute="leading" secondItem="ze7-x4-1hg" secondAttribute="leading" id="1BO-2p-1TC"/>
                                     <constraint firstItem="k43-e2-eUy" firstAttribute="centerY" secondItem="ze7-x4-1hg" secondAttribute="centerY" id="PyF-tt-jIi"/>
@@ -179,4 +228,7 @@
         <image name="ic_back" width="44" height="44"/>
         <image name="logo" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UZF-80-c7l"/>
+    </inferredMetricsTieBreakers>
 </document>

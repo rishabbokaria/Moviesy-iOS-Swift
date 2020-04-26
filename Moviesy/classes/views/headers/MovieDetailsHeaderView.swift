@@ -18,6 +18,9 @@ class MovieDetailsHeaderView: UIView
     @IBOutlet var _overviewLabel: UILabel!
     @IBOutlet var _releaseDateLabel: UILabel!
     
+    //MARK: -
+    //MARK: Lifecycle
+    
     override public init(frame: CGRect)
     {
         super.init(frame: frame);
@@ -40,5 +43,18 @@ class MovieDetailsHeaderView: UIView
         _contentView.frame = self.bounds;
         _contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight];
         addSubview(_contentView);
+    }
+    
+    //MARK: -
+    //MARK: Update UI
+    
+    private func updateView()
+    {
+        _backdropImageView.image = #imageLiteral(resourceName: "logo.png")
+        _titleLabel.text = ""
+        _genreLabel.text = ""
+        _languageLabel.text = ""
+        _releaseDateLabel.text = ""
+        _overviewLabel.text = ""
     }
 }

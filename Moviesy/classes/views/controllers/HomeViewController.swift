@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, OnCommunicationResponseListener
         button.setImage(#imageLiteral(resourceName: "ic_search"), for: .highlighted)
         button.setImage(#imageLiteral(resourceName: "ic_search"), for: .selected)
 
-        button.frame = CGRect.init(x: 0.0, y: 0.0, width: 44.0, height: 44.0)
+        button.frame = CGRect.init(x: 0.0, y: 0.0, width: 32.0, height: 32.0)
         button.addTarget(self, action: #selector(HomeViewController.didClickOnSearchButton), for: .touchUpInside)
         button.backgroundColor = UIColor.clear
         button.tintColor = UIColor.white
@@ -94,6 +94,11 @@ class HomeViewController: UIViewController, OnCommunicationResponseListener
             }
             let movieDetailVC:MovieDetailsViewController = segue.destination as! MovieDetailsViewController
             movieDetailVC.viewModel = _viewModels[_selectedItem]
+        }
+        else if (segue.identifier == StringValues.SearchSegueId)
+        {
+            let searchVC:SearchViewController = segue.destination as! SearchViewController
+            searchVC.viewModels = self._viewModels
         }
     }
     

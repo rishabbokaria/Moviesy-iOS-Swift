@@ -35,6 +35,7 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
     
     private func updateView()
     {
+        _headerView = getHeaderView()
         updateNavigationBar()
         updateTableView()
         viewModel.configure(_headerView)
@@ -42,7 +43,6 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
     
     private func updateTableView()
     {
-        _headerView = getHeaderView()
         _detailsTableView.tableHeaderView = _headerView
         _detailsTableView.register(UINib(nibName: StringValues.CastCrewTableViewCellId, bundle: Bundle.main), forCellReuseIdentifier: StringValues.CastCrewTableViewCellId)
         _detailsTableView.register(UINib(nibName: StringValues.SimilarMovieTableViewCellId, bundle: Bundle.main), forCellReuseIdentifier: StringValues.SimilarMovieTableViewCellId)
@@ -62,7 +62,7 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
         button.setImage(#imageLiteral(resourceName: "ic_back"), for: .highlighted)
         button.setImage(#imageLiteral(resourceName: "ic_back"), for: .selected)
         
-        button.frame = CGRect.init(x: 0.0, y: 0.0, width: 44.0, height: 44.0)
+        button.frame = CGRect.init(x: 0.0, y: 0.0, width: 32.0, height: 32.0)
         button.addTarget(self, action: #selector(MovieDetailsViewController.didClickOnBackButton), for: .touchUpInside)
         button.backgroundColor = UIColor.clear
         button.tintColor = UIColor.white
@@ -71,7 +71,7 @@ class MovieDetailsViewController: UIViewController, OnCommunicationResponseListe
     
     private func getHeaderView() -> MovieDetailsHeaderView
     {
-        let headerView = MovieDetailsHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.size.width, height: 506)))
+        let headerView = MovieDetailsHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.size.width, height: 480)))
         return headerView
     }
     
