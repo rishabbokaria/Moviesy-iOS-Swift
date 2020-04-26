@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CastCrewTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SimilarMovieTableViewCell" rowHeight="229" id="8Kx-4l-ITM" customClass="SimilarMovieTableViewCell" customModule="Moviesy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="229"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Kx-4l-ITM" id="bTk-bg-1s2">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="229"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies you may also like... " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKG-6z-aSH">
+                        <rect key="frame" x="16" y="0.0" width="382" height="21"/>
+                        <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MxW-SZ-a1h">
+                        <rect key="frame" x="0.0" y="21" width="414" height="208"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="moA-Z8-yJi">
+                            <size key="itemSize" width="117" height="176"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="8Kx-4l-ITM" id="ZxP-XP-jBT"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="mKG-6z-aSH" firstAttribute="leading" secondItem="bTk-bg-1s2" secondAttribute="leading" constant="16" id="9sK-Fs-zhP"/>
+                    <constraint firstItem="mKG-6z-aSH" firstAttribute="top" secondItem="bTk-bg-1s2" secondAttribute="top" id="HGn-jg-PXW"/>
+                    <constraint firstItem="MxW-SZ-a1h" firstAttribute="top" secondItem="mKG-6z-aSH" secondAttribute="bottom" id="Jdl-99-uxc"/>
+                    <constraint firstAttribute="bottom" secondItem="MxW-SZ-a1h" secondAttribute="bottom" id="Mch-O4-IX9"/>
+                    <constraint firstItem="MxW-SZ-a1h" firstAttribute="leading" secondItem="bTk-bg-1s2" secondAttribute="leading" id="Uz1-Mw-SAu"/>
+                    <constraint firstAttribute="trailing" secondItem="MxW-SZ-a1h" secondAttribute="trailing" id="V3x-wr-ziu"/>
+                    <constraint firstAttribute="trailing" secondItem="mKG-6z-aSH" secondAttribute="trailing" constant="16" id="nBp-sf-jQt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="_similarMovieCollectionView" destination="MxW-SZ-a1h" id="ND0-R1-KgJ"/>
+                <outlet property="_titleLabel" destination="mKG-6z-aSH" id="xgQ-JQ-eTl"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="262.5"/>
+        </tableViewCell>
+    </objects>
+</document>
