@@ -1,7 +1,7 @@
 # Moviesy-iOS-Swift
 Moviesy-iOS-Swift
 
-This project is powered by TheMovieDataBase API's and follows MVVM architecture.
+This project is powered by open source API's and follows MVVM architecture.
 
 1. Fetch configuration, genres and languages.
 2. Fetch now playing movies in India(IN) region & display the list.
